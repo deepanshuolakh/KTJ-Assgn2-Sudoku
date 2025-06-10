@@ -1,0 +1,230 @@
+html {
+  font-size: var(14px);
+  font-family: "FKGroteskNeue", "Geist", "Inter", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;;
+  line-height: var(1.5);
+  color: rgba(245, 245, 245, 1);
+  background-color: rgba(31, 33, 33, 1);
+
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+
+}
+
+.puzzle_svg {
+  position: relative;
+  top: -20px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: var(14px);
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  border: none;
+}
+
+.btn1 {
+  background: rgba(50, 184, 198, 1);
+  color: rgba(19, 52, 59, 1);
+}
+
+.btn1:hover {
+  background: rgba(45, 166, 178, 1);
+}
+
+.btn1:active {
+  background: rgba(41, 150, 161, 1);
+}
+
+.btn3 {
+  background: rgba(119, 124, 124, 0.15);
+  color: rgba(245, 245, 245, 1);
+}
+
+.btn3:hover {
+  background: rgba(119, 124, 124, 0.25);
+}
+
+.btn3:active {
+  background: rgba(119, 124, 124, 0.3);
+}
+
+.btn2 {
+  background: transparent;
+  border: 1px solid rgba(119, 124, 124, 0.3);
+  color: rgba(245, 245, 245, 1);
+}
+
+.btn2:hover {
+  background: rgba(119, 124, 124, 0.15);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
+}
+
+/* Sudoku specific styles */
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 32px;
+  color: rgba(245, 245, 245, 1);
+}
+
+.sudoku-board {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 1px;
+  background-color: rgba(119, 124, 124, 0.3);
+  border: 3px solid rgba(119, 124, 124, 0.3);
+  border-radius: 8px;
+  margin-bottom: 24px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sudoku-cell {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: rgba(38, 40, 40, 1);
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  color: rgba(245, 245, 245, 1);
+  cursor: pointer;
+}
+
+.sudoku-cell:focus {
+  outline: 2px solid rgba(50, 184, 198, 1);
+  z-index: 1;
+}
+
+.sudoku-cell.prefilled {
+  background-color: rgba(119, 124, 124, 0.15);
+  color: rgba(245, 245, 245, 1);
+  font-weight: 600;
+  cursor: default;
+}
+
+.sudoku-cell.error {
+  background-color: rgba(255, 84, 89, 0.1);
+  color: rgba(255, 84, 89, 1);
+}
+
+/* 3x3 box borders */
+.sudoku-cell:nth-child(3n) {
+  border-right: 2px solid rgba(119, 124, 124, 0.3);
+}
+
+.sudoku-cell:nth-child(n+19):nth-child(-n+27),
+.sudoku-cell:nth-child(n+46):nth-child(-n+54) {
+  border-bottom: 2px solid rgba(119, 124, 124, 0.3);
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.controls .btn {
+  min-width: 80px;
+}
+
+.message {
+  min-height: 24px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 16px;
+}
+
+.message.success {
+  color: rgba(50, 184, 198, 1);
+}
+
+.message.error {
+  color: rgba(255, 84, 89, 1);
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 16px;
+  }
+
+  .sudoku-cell {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  .sudoku-board {
+    max-width: 350px;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .controls .btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
